@@ -28,14 +28,14 @@
     owner=root
     group=adm
     mode=0640
-  notify: reload supervisor
+  notify: reload supervisorctl
 
 - name: Create /etc/beaver.d
   file: path=/etc/beaver.d owner=root group=adm mode=0770 state=directory
 
 - name: Install supervisor config
   copy: src=supervisor.conf dest=/etc/supervisord.conf
-  notify: reload supervisor
+  notify: reload supervisorctl
 
 - name: Ensure supervisor is running
-  service: name=supervisor state=started
+  service: name=supervisord state=started
