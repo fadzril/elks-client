@@ -2,3 +2,7 @@
 beaver_rabbitmq_host: localhost
 beaver_rabbitmq_username: admin
 beaver_rabbitmq_password: admin
+
+beaver_rabbitmq_queue: SFTP-Q
+beaver_rabbitmq_key: SFTP-K
+beaver_rabbitmq_exchange: SFTP-X
