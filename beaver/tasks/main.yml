@@ -34,7 +34,7 @@
   file: path=/etc/beaver.d owner=root group=adm mode=0770 state=directory
 
 - name: Install supervisor config
-  copy: src=supervisor.conf dest=/etc/supervisor/conf.d/beaver.conf
+  copy: src=supervisor.conf dest=/etc/supervisord.conf
   notify: reload supervisor
 
 - name: Ensure supervisor is running
