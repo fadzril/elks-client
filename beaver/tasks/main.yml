@@ -21,6 +21,9 @@
 - name: Install beaver
   pip: name=beaver virtualenv=/usr/share/beaver state=present
 
+- name: Install required library by beaver
+  pip: name=argparse virtualenv=/usr/share/beaver state=present
+
 - name: Install beaver config
   template: >
     src=beaver.conf.j2

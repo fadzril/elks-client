@@ -2,6 +2,7 @@
 logstash_version: 1
 format: json
 transport: rabbitmq
+rabbitmq_vhost: /
 rabbitmq_host: {{ beaver_rabbitmq_host }}
 rabbitmq_username: {{ beaver_rabbitmq_username }}
 rabbitmq_password: {{ beaver_rabbitmq_password }}
@@ -9,8 +10,8 @@ rabbitmq_queue: {{ beaver_rabbitmq_queue }}
 rabbitmq_key: {{ beaver_rabbitmq_key }}
 rabbitmq_exchange: {{ beaver_rabbitmq_exchange }}
 
-[/home/leo/logs/informatica]
+[/home/leo/logs/informatica/*.txt]
 type: BATCH
 
-[/home/leo/logs/workday]
+[/home/leo/logs/workday/*]
 type: WORKDAY
