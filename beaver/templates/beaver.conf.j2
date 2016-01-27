@@ -1,6 +1,5 @@
 [beaver]
 logstash_version: 1
-format: json
 transport: rabbitmq
 rabbitmq_vhost: /
 rabbitmq_host: {{ beaver_rabbitmq_host }}
@@ -9,9 +8,14 @@ rabbitmq_password: {{ beaver_rabbitmq_password }}
 rabbitmq_queue: {{ beaver_rabbitmq_queue }}
 rabbitmq_key: {{ beaver_rabbitmq_key }}
 rabbitmq_exchange: {{ beaver_rabbitmq_exchange }}
+sincedb_path: /etc/beaver/since.db
 
 [/home/leo/logs/informatica/*.txt]
 type: BATCH
+format: json
+sincedb_write_interval: 3
 
 [/home/leo/logs/workday/*]
 type: WORKDAY
+format: json
+sincedb_write_interval: 5
