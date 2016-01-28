@@ -36,6 +36,22 @@
 - name: Create /etc/beaver.d
   file: path=/etc/beaver.d owner=root group=adm mode=0770 state=directory
 
+- name: Copy beaver client properties
+    template: >
+    src=client.conf.j2
+    dest=/etc/beaver.d/client.conf
+    owner=root
+    group=adm
+    mode=0640
+  notify: reload supervisorctl
+
+- name: Checkout and update RPC-Server Repository
+    git: >
+    repo={{ repository.url }}
+    dest={{ beaver_home_path }}/server
+    update=yes
+    when: transport.type is RPC
+
 - name: Install supervisor config
   copy: src=supervisor.conf dest=/etc/supervisord.conf
   notify: reload supervisorctl
