@@ -37,7 +37,7 @@
   file: path=/etc/beaver.d owner=root group=adm mode=0770 state=directory
 
 - name: Copy beaver client properties
-    template: >
+  template: >
     src=client.conf.j2
     dest=/etc/beaver.d/client.conf
     owner=root
