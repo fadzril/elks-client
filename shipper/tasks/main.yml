@@ -50,7 +50,7 @@
     repo={{ repository.url }}
     dest={{ beaver_home_path }}/server
     update=yes
-  when: transport.type is RPC
+  when: transport_type == 'RPC'
 
 - name: Install supervisor config
   copy: src=supervisor.conf dest=/etc/supervisord.conf

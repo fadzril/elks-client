@@ -9,8 +9,6 @@ beaver_rabbitmq_key: RPC-K
 beaver_rabbitmq_exchange: RPC-X
 beaver_rabbitmq_vhost: /
 
-transport:
-  type: RPC
-
+transport_type: RPC
 repository:
   url: git@github-is-p.ghe.hos.hpecorp.net:fadzril/leo-rpc-server.git
